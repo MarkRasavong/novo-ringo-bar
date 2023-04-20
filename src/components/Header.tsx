@@ -33,12 +33,12 @@ const Header = () => {
     { label: 'Hacer Pedido', href: '/hacer-pedido' },
   ];
 
-  const navClasses = `fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-    isScrolled ? 'bg-ringoRed' : 'bg-transparent'
-  }`;
-
   return (
-    <header className={navClasses}>
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-ringoRed' : 'bg-transparent'
+      }`}
+    >
       <nav className="max-w-screen-lg mx-auto px-4 py-2 flex justify-between items-center">
         <div className="flex items-center">
           <Link href="tel:+1234567890" aria-label="Llámanos">
