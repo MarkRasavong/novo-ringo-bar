@@ -42,7 +42,7 @@ const Header: React.FC<HeaderProps> = props => {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-ringoRed' : 'bg-black'
+        isScrolled ? 'bg-ringoRed' : 'bg-transparent'
       }`}
     >
       <nav className="max-w-screen-lg mx-auto px-4 py-2 flex justify-between items-center">
