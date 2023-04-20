@@ -42,16 +42,24 @@ const Header: React.FC<HeaderProps> = props => {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-ringoRed' : 'bg-transparent'
+        isScrolled || isMenuOpen ? 'bg-ringoRed' : 'bg-transparent'
       }`}
     >
       <nav className="max-w-screen-lg mx-auto px-4 py-2 flex justify-between items-center">
         <div className="flex items-center">
-          <Link href={`tel:${numeroTelefono}`} aria-label="Llámanos">
-            <FaPhone className="text-white mr-4" />
+          <Link
+            href={`tel:${numeroTelefono}`}
+            className="text-white mr-3 lg:mr-4"
+            aria-label="Llámanos"
+          >
+            <FaPhone />
           </Link>
-          <Link href={facebook} aria-label="Facebook">
-            <FaFacebook className="text-white mr-4" />
+          <Link
+            href={facebook}
+            className="text-white mr-3 lg:mr-4"
+            aria-label="Facebook"
+          >
+            <FaFacebook />
           </Link>
           <Link href={instagram} aria-label="Instagram">
             <FaInstagram className="text-white" />
@@ -60,9 +68,9 @@ const Header: React.FC<HeaderProps> = props => {
         <Link
           href="/"
           passHref
-          className={`text-white lg:text-5xl ${
+          className={`text-white text-3xl lg:text-5xl ${
             isScrolled && 'text-3xl'
-          } font-logo font-bold`}
+          } font-bold`}
         >
           RingoBar
         </Link>
