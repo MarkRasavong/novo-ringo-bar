@@ -1,3 +1,4 @@
+import { SanityNegocioSchema } from '@/sanity/schemas/negocio';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import {
@@ -8,7 +9,12 @@ import {
   FaTimes,
 } from 'react-icons/fa';
 
-const Header = () => {
+interface HeaderProps {
+  business: SanityNegocioSchema;
+}
+
+const Header: React.FC<HeaderProps> = props => {
+  const { facebook, instagram, numeroTelefono } = props.business;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -27,8 +33,8 @@ const Header = () => {
 
   const menuItems = [
     { label: 'Carta', href: '/carta' },
-    { label: 'Horarios', href: '#galeria' },
-    { label: 'Galería', href: '#horarios' },
+    { label: 'Horarios', href: '#horarios' },
+    { label: 'Galería', href: '#galeria' },
     { label: 'Contactar', href: '#contactar' },
     { label: 'Hacer Pedido', href: '/hacer-pedido' },
   ];
@@ -36,18 +42,18 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-ringoRed' : 'bg-transparent'
+        isScrolled ? 'bg-ringoRed' : 'bg-black'
       }`}
     >
       <nav className="max-w-screen-lg mx-auto px-4 py-2 flex justify-between items-center">
         <div className="flex items-center">
-          <Link href="tel:+1234567890" aria-label="Llámanos">
+          <Link href={`tel:${numeroTelefono}`} aria-label="Llámanos">
             <FaPhone className="text-white mr-4" />
           </Link>
-          <Link href="#" aria-label="Facebook">
+          <Link href={facebook} aria-label="Facebook">
             <FaFacebook className="text-white mr-4" />
           </Link>
-          <Link href="#" aria-label="Instagram">
+          <Link href={instagram} aria-label="Instagram">
             <FaInstagram className="text-white" />
           </Link>
         </div>

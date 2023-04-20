@@ -3,12 +3,16 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { GetStaticProps, NextPage } from 'next';
 import { client } from '@/lib/client';
+import { SanityNegocioSchema } from '@/sanity/schemas/negocio';
 
-const HomePage: NextPage = props => {
-  console.log(props);
+interface HomePageProps {
+  business: SanityNegocioSchema;
+}
+
+const HomePage: NextPage<HomePageProps> = ({ business }) => {
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+      <Header business={business} />
       <main className="flex-grow">
         <h1 className="font-condensed text-5xl">Welcome to Ringo Bar</h1>
         <p className="font-sans text-base">
