@@ -86,6 +86,17 @@ const CartaPage: NextPage<CartaPageProps> = ({ carta, nav }) => {
     <div className="min-h-screen flex flex-col bg-ringoBeige">
       <Header nav={nav} />
       <main className="flex-grow">
+        <div className="relative h-[50vh]">
+          <img
+            src="/austin-ban-IS6RwpuEJpY-unsplash.jpg"
+            alt="Chef de pizza preparando masa de pizza en Ringo Bar Pizzeria en Valencia"
+            className="h-[50vh] w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black opacity-50" />
+          <div className="absolute inset-0 flex justify-center items-center">
+            <h1 className="text-4xl font-bold text-white">La Carta</h1>
+          </div>
+        </div>
         <div className="max-w-3xl mx-auto py-12 px-4">
           {Object.keys(menuData).map(section => (
             <MenuSection

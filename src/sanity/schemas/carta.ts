@@ -17,7 +17,7 @@ export interface SanityCartaSchema {
 
 export default {
   name: 'carta',
-  title: 'Carta',
+  title: 'Carta - Carta',
   type: 'document',
   fields: [
     {

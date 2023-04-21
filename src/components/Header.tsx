@@ -38,9 +38,9 @@ const Header: React.FC<HeaderProps> = props => {
 
   const menuItems = [
     { label: 'Carta', href: '/carta', icon: <FaClipboardList /> },
-    { label: 'Horarios', href: '#horarios', icon: <FaClock /> },
-    { label: 'Galería', href: '#galeria', icon: <FaImages /> },
-    { label: 'Contactar', href: '#contactar', icon: <FaEnvelope /> },
+    { label: 'Horarios', href: '/#horarios', icon: <FaClock /> },
+    { label: 'Galería', href: '/#galeria', icon: <FaImages /> },
+    { label: 'Contactar', href: '/#contactar', icon: <FaEnvelope /> },
     { label: 'Hacer Pedido', href: '/hacer-pedido', icon: <FaUtensils /> },
     { label: 'Llámanos', href: `tel:${telefono}`, icon: <FaPhone /> },
     {
