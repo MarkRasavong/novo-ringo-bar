@@ -6,6 +6,7 @@ import { SanityBarraNavSchema } from '@/sanity/schemas/nav';
 import { SanityCartaSchema } from '@/sanity/schemas/carta';
 import { useState } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { formatAsEuro } from '@/utils';
 
 interface CartaPageProps {
   carta: SanityCartaSchema[];
@@ -53,7 +54,9 @@ const MenuSection: React.FC<{ items: MenuItemProps[]; title: string }> = ({
                 <div className="mr-2 flex justify-between">
                   <h3 className="text-md font-medium mb-1">{item.name}</h3>
                   {item.price !== 0 && (
-                    <div className="text-md font-medium">{item.price} €</div>
+                    <div className="text-md font-medium">
+                      {formatAsEuro(item.price)}
+                    </div>
                   )}
                 </div>
                 <p className="text-sm text-gray-600">{item.description}</p>
