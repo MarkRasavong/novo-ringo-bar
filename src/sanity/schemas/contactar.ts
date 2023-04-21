@@ -13,7 +13,7 @@ export interface SanityContactarSchema {
   comoLlegarLink: string
   address: SanityAddress
   phone: string
-  llamarButtonName: string
+  llamarButton: string
 }
 
 export default {

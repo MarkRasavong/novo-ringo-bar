@@ -18,7 +18,7 @@ interface HomePageProps {
 }
 
 const HomePage: NextPage<HomePageProps> = ({ nav, horarios, contactar }) => {
-  console.log(horarios);
+  console.log(contactar);
 
   return (
     <div className="min-h-screen flex flex-col">
