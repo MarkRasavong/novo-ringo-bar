@@ -7,6 +7,11 @@ import {
   FaInstagram,
   FaBars,
   FaTimes,
+  FaClock,
+  FaClipboardList,
+  FaImages,
+  FaEnvelope,
+  FaUtensils,
 } from 'react-icons/fa';
 
 interface HeaderProps {
@@ -32,11 +37,18 @@ const Header: React.FC<HeaderProps> = props => {
   };
 
   const menuItems = [
-    { label: 'Carta', href: '/carta' },
-    { label: 'Horarios', href: '#horarios' },
-    { label: 'Galería', href: '#galeria' },
-    { label: 'Contactar', href: '#contactar' },
-    { label: 'Hacer Pedido', href: '/hacer-pedido' },
+    { label: 'Carta', href: '/carta', icon: <FaClipboardList /> },
+    { label: 'Horarios', href: '#horarios', icon: <FaClock /> },
+    { label: 'Galería', href: '#galeria', icon: <FaImages /> },
+    { label: 'Contactar', href: '#contactar', icon: <FaEnvelope /> },
+    { label: 'Hacer Pedido', href: '/hacer-pedido', icon: <FaUtensils /> },
+    { label: 'Llámanos', href: `tel:${numeroTelefono}`, icon: <FaPhone /> },
+    {
+      label: 'Instagram',
+      href: instagram,
+      icon: <FaInstagram />,
+    },
+    { label: 'Facebook', href: facebook, icon: <FaFacebook /> },
   ];
 
   return (
@@ -45,39 +57,24 @@ const Header: React.FC<HeaderProps> = props => {
         isScrolled || isMenuOpen ? 'bg-ringoRed' : 'bg-transparent'
       }`}
     >
-      <nav className="max-w-screen-lg mx-auto px-4 py-2 flex justify-between items-center">
-        <div className="flex items-center">
+      <nav className="max-w-screen-lg mx-auto px-4 py-2 justify-between flex items-center">
+        <div className="flex-grow text-center">
           <Link
-            href={`tel:${numeroTelefono}`}
-            className="text-white mr-3 lg:mr-4"
-            aria-label="Llámanos"
+            href="/"
+            passHref
+            className={`text-white text-3xl lg:text-5xl ${
+              isScrolled && 'text-3xl'
+            } font-bold`}
           >
-            <FaPhone />
-          </Link>
-          <Link
-            href={facebook}
-            className="text-white mr-3 lg:mr-4"
-            aria-label="Facebook"
-          >
-            <FaFacebook />
-          </Link>
-          <Link href={instagram} aria-label="Instagram">
-            <FaInstagram className="text-white" />
+            RingoBar
           </Link>
         </div>
-        <Link
-          href="/"
-          passHref
-          className={`text-white text-3xl lg:text-5xl ${
-            isScrolled && 'text-3xl'
-          } font-bold`}
-        >
-          RingoBar
-        </Link>
+
         <button
           onClick={handleMenuToggle}
           aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={isMenuOpen}
+          className="ml-auto"
         >
           {isMenuOpen ? (
             <FaTimes className="text-white text-2xl" />
@@ -103,7 +100,10 @@ const Header: React.FC<HeaderProps> = props => {
               } w-full`}
             >
               <Link href={item.href} passHref onClick={handleMenuToggle}>
-                {item.label}
+                <div className="flex items-center">
+                  {item.icon && <span className="mr-2">{item.icon}</span>}
+                  <span>{item.label}</span>
+                </div>
               </Link>
             </li>
           ))}
