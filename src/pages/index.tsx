@@ -6,6 +6,7 @@ import { client } from '@/lib/client';
 import { SanityNegocioSchema } from '@/sanity/schemas/negocio';
 import HeroSection from '@/components/HeroSection';
 import HorariosSection from '@/components/HorariosSection';
+import GaleriaSection from '@/components/GaleriaSection';
 
 interface HomePageProps {
   business: SanityNegocioSchema;
@@ -18,6 +19,7 @@ const HomePage: NextPage<HomePageProps> = ({ business }) => {
       <main className="flex-grow">
         <HeroSection />
         <HorariosSection />
+        <GaleriaSection />
         <h1 className="font-condensed text-5xl">Welcome to Ringo Bar</h1>
         <p className="font-sans text-base">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
