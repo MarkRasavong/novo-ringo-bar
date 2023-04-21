@@ -1,3 +1,5 @@
+import React from 'react';
+
 const HorariosSection = () => {
   return (
     <section className="bg-ringoRed text-white text-center py-16" id="horarios">
