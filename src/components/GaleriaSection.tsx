@@ -1,7 +1,14 @@
+import { SanityGaleriaSchema } from '@/sanity/schemas/galeria';
 import Image from 'next/image';
 import { useState } from 'react';
 
-const GaleriaSection = () => {
+interface GaleriaSectionProps {
+  galeria: SanityGaleriaSchema;
+}
+
+const GaleriaSection: React.FC<GaleriaSectionProps> = ({ galeria }) => {
+  console.log(galeria);
+
   const [isLoaded, setIsLoaded] = useState([false, false, false]);
 
   const testImg = '/pizza1.jpg';

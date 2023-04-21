@@ -10,23 +10,28 @@ import ContactarSection from '@/components/ContactarSection';
 import { SanityBarraNavSchema } from '@/sanity/schemas/nav';
 import { SanityHorariosSchema } from '@/sanity/schemas/horarios';
 import { SanityContactarSchema } from '@/sanity/schemas/contactar';
+import { SanityGaleriaSchema } from '@/sanity/schemas/galeria';
 
 interface HomePageProps {
   nav: SanityBarraNavSchema;
   horarios: SanityHorariosSchema;
   contactar: SanityContactarSchema;
+  galeria: SanityGaleriaSchema;
 }
 
-const HomePage: NextPage<HomePageProps> = ({ nav, horarios, contactar }) => {
-  console.log(contactar);
-
+const HomePage: NextPage<HomePageProps> = ({
+  nav,
+  horarios,
+  contactar,
+  galeria,
+}) => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header nav={nav} />
       <main className="flex-grow">
         <HeroSection />
         <HorariosSection horarios={horarios} />
-        <GaleriaSection />
+        <GaleriaSection galeria={galeria} />
         <ContactarSection contactar={contactar} />
       </main>
       <Footer />
@@ -42,9 +47,10 @@ export const getStaticProps: GetStaticProps = async () => {
   const horarios = await client.fetch(queryHorarios);
 
   const contactar = await client.fetch('*[_type == "contactar"][0]');
+  const galeria = await client.fetch('*[_type == "galeria"][0]');
 
   return {
-    props: { nav, horarios, contactar },
+    props: { nav, horarios, contactar, galeria },
   };
 };
 

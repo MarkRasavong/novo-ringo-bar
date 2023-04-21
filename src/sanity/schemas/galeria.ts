@@ -16,7 +16,7 @@ export interface SanityGaleriaSchema {
 
 export default {
   name: 'galeria',
-  title: 'Galeria',
+  title: 'Página Principal - Galeria',
   type: 'document',
   fields: [
     {
@@ -39,9 +39,6 @@ export default {
               description:
                 'Agrega una descripción para la imagen (debe ser descriptiva para usuarios que no pueden ver la imagen).',
               validation: (Rule: any) => Rule.required(),
-              options: {
-                isHighlighted: true,
-              },
             },
           ],
         },
