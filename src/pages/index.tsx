@@ -9,13 +9,15 @@ import GaleriaSection from '@/components/GaleriaSection';
 import ContactarSection from '@/components/ContactarSection';
 import { SanityBarraNavSchema } from '@/sanity/schemas/nav';
 import { SanityHorariosSchema } from '@/sanity/schemas/horarios';
+import { SanityContactarSchema } from '@/sanity/schemas/contactar';
 
 interface HomePageProps {
   nav: SanityBarraNavSchema;
   horarios: SanityHorariosSchema;
+  contactar: SanityContactarSchema;
 }
 
-const HomePage: NextPage<HomePageProps> = ({ nav, horarios }) => {
+const HomePage: NextPage<HomePageProps> = ({ nav, horarios, contactar }) => {
   console.log(horarios);
 
   return (
@@ -25,7 +27,7 @@ const HomePage: NextPage<HomePageProps> = ({ nav, horarios }) => {
         <HeroSection />
         <HorariosSection horarios={horarios} />
         <GaleriaSection />
-        <ContactarSection />
+        <ContactarSection contactar={contactar} />
       </main>
       <Footer />
     </div>
@@ -39,8 +41,10 @@ export const getStaticProps: GetStaticProps = async () => {
   const queryHorarios = '*[_type == "horarios"][0]';
   const horarios = await client.fetch(queryHorarios);
 
+  const contactar = await client.fetch('*[_type == "contactar"][0]');
+
   return {
-    props: { nav, horarios },
+    props: { nav, horarios, contactar },
   };
 };
 

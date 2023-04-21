@@ -1,8 +1,13 @@
+import { SanityContactarSchema } from '@/sanity/schemas/contactar';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
 
-const ContactarSection = () => {
+interface ContactarSectionProps {
+  contactar: SanityContactarSchema;
+}
+
+const ContactarSection: React.FC<ContactarSectionProps> = () => {
   return (
     <section className="bg-ringoRed text-white py-16" id="contactar">
       <div className="container mx-auto flex flex-col items-center">

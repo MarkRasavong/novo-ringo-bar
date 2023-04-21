@@ -18,7 +18,7 @@ export interface SanityContactarSchema {
 
 export default {
   name: 'contactar',
-  title: 'Contactar',
+  title: 'Página Principal - Contactar',
   type: 'document',
   fields: [
     {
