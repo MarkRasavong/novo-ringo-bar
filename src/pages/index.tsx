@@ -3,20 +3,20 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { GetStaticProps, NextPage } from 'next';
 import { client } from '@/lib/client';
-import { SanityNegocioSchema } from '@/sanity/schemas/negocio';
 import HeroSection from '@/components/HeroSection';
 import HorariosSection from '@/components/HorariosSection';
 import GaleriaSection from '@/components/GaleriaSection';
 import ContactarSection from '@/components/ContactarSection';
+import { SanityBarraNavSchema } from '@/sanity/schemas/nav';
 
 interface HomePageProps {
-  business: SanityNegocioSchema;
+  nav: SanityBarraNavSchema;
 }
 
-const HomePage: NextPage<HomePageProps> = ({ business }) => {
+const HomePage: NextPage<HomePageProps> = ({ nav }) => {
   return (
     <div className="min-h-screen flex flex-col">
-      <Header business={business} />
+      <Header nav={nav} />
       <main className="flex-grow">
         <HeroSection />
         <HorariosSection />
@@ -29,11 +29,11 @@ const HomePage: NextPage<HomePageProps> = ({ business }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const query = '*[_type == "negocio"][0]';
-  const business = await client.fetch(query);
+  const query = '*[_type == "navegacion"][0]';
+  const nav = await client.fetch(query);
 
   return {
-    props: { business },
+    props: { nav },
   };
 };
 

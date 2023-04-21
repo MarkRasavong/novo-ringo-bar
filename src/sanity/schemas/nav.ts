@@ -1,3 +1,10 @@
+export interface SanityBarraNavSchema {
+  facebook?: string
+  instagram?: string
+  telefono: string
+  _id: string
+}
+
 const navegacionSchema = {
   name: 'navegacion',
   title: 'Principal - Barra de Navegación',

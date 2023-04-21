@@ -1,23 +1,3 @@
-export interface SanityNegocioSchema {
-  direccionNegocio: {
-    pais: string
-    codigoPostal: string
-    numero: string
-    ciudad: string
-    calle: string
-  }
-  facebook: string
-  glovoLink: string
-  instagram: string
-  justEatLink: string
-  nombre: string
-  numeroTelefono: string
-  telefonoBtnName: string
-  urlComoLlegar: string
-  urlGoogleLocale: string
-  _id: string
-}
-
 export default {
   name: 'negocio',
   title: 'Información del Negocio',

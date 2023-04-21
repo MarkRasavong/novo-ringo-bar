@@ -1,4 +1,4 @@
-import { SanityNegocioSchema } from '@/sanity/schemas/negocio';
+import { SanityBarraNavSchema } from '@/sanity/schemas/nav';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import {
@@ -15,11 +15,11 @@ import {
 } from 'react-icons/fa';
 
 interface HeaderProps {
-  business: SanityNegocioSchema;
+  nav: SanityBarraNavSchema;
 }
 
 const Header: React.FC<HeaderProps> = props => {
-  const { facebook, instagram, numeroTelefono } = props.business;
+  const { facebook, instagram, telefono } = props.nav;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -42,7 +42,7 @@ const Header: React.FC<HeaderProps> = props => {
     { label: 'Galería', href: '#galeria', icon: <FaImages /> },
     { label: 'Contactar', href: '#contactar', icon: <FaEnvelope /> },
     { label: 'Hacer Pedido', href: '/hacer-pedido', icon: <FaUtensils /> },
-    { label: 'Llámanos', href: `tel:${numeroTelefono}`, icon: <FaPhone /> },
+    { label: 'Llámanos', href: `tel:${telefono}`, icon: <FaPhone /> },
     {
       label: 'Instagram',
       href: instagram,
@@ -99,7 +99,7 @@ const Header: React.FC<HeaderProps> = props => {
                   : 'opacity-0 translate-x-10'
               } w-full`}
             >
-              <Link href={item.href} passHref onClick={handleMenuToggle}>
+              <Link href={item.href || ''} passHref onClick={handleMenuToggle}>
                 <div className="flex items-center">
                   {item.icon && <span className="mr-2">{item.icon}</span>}
                   <span>{item.label}</span>
