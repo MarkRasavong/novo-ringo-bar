@@ -1,3 +1,20 @@
+export interface SanityCartaSchema {
+  _id: string
+  _type: 'carta'
+  nombre: string
+  precio: number
+  tipo: string
+  descripcion?: string
+  eng_name?: string
+  eng_descripcion?: string
+  foto?: {
+    _type: 'image'
+    asset: {
+      _ref: string
+    }
+  }
+}
+
 export default {
   name: 'carta',
   title: 'Carta',
