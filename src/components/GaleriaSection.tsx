@@ -17,7 +17,7 @@ const GaleriaSection = () => {
   return (
     <section className="bg-gray-100 py-16" id="galeria">
       <div className="container mx-auto">
-        <h2 className="text-4xl md:text-6xl font-bold text-center mb-8">
+        <h2 className="text-4xl md:text-6xl font-bold text-center mb-8 text-ringoRed">
           Galería
         </h2>
 
