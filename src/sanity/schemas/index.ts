@@ -1,5 +1,5 @@
 import carta from './carta'
 import horario from './horario'
-import negocio from './negocio'
+import nav from './nav'
 
-export const schemaTypes = [carta, horario, negocio]
+export const schemaTypes = [carta, horario, nav]
