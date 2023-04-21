@@ -7,7 +7,7 @@ export interface SanityBarraNavSchema {
 
 const navegacionSchema = {
   name: 'navegacion',
-  title: 'Principal - Barra de Navegación',
+  title: 'Página Principal - Barra de Navegación',
   type: 'document',
   fields: [
     {

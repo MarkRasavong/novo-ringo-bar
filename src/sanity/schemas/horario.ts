@@ -1,6 +1,6 @@
 export default {
-  name: 'horario',
-  title: 'Horario',
+  name: 'horarios',
+  title: 'Página Principal - Horarios',
   type: 'document',
   fields: [
     {
