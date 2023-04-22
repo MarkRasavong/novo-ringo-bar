@@ -1,12 +1,12 @@
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import React, { useState } from 'react';
 import { GetStaticProps, NextPage } from 'next';
 import { client } from '@/lib/client';
 import { SanityBarraNavSchema } from '@/sanity/schemas/nav';
 import { SanityCartaSchema } from '@/sanity/schemas/carta';
-import { useState } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import { formatAsEuro } from '@/utils';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 
 interface CartaPageProps {
   carta: SanityCartaSchema[];
@@ -32,6 +32,7 @@ const MenuSection: React.FC<{ items: MenuItemProps[]; title: string }> = ({
   return (
     <div className="mb-6">
       <button
+        type="button"
         className="flex items-center justify-between w-full font-medium text-lg focus:outline-none"
         onClick={toggleSection}
       >
