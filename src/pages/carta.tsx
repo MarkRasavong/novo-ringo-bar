@@ -7,6 +7,7 @@ import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import { formatAsEuro } from '@/utils';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import Head from 'next/head';
 
 interface CartaPageProps {
   carta: SanityCartaSchema[];
@@ -113,46 +114,63 @@ const CartaPage: NextPage<CartaPageProps> = ({ carta, nav }) => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-ringoBeige">
-      <Header nav={nav} />
-      <main className="flex-grow">
-        <div className="relative h-[50vh]">
-          <img
-            src="/austin-ban-IS6RwpuEJpY-unsplash.jpg"
-            alt="Chef de pizza preparando masa de pizza en Ringo Bar Pizzeria en Valencia"
-            className="h-[50vh] w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black opacity-50" />
-          <div className="absolute inset-0 flex justify-center items-center">
-            <h1 className="text-4xl font-bold text-white">La Carta</h1>
-          </div>
-        </div>
-        <div className="flex justify-center mt-6">
-          <button
-            className={`mx-2 text-3xl ${language === 'es' ? 'font-bold' : ''}`}
-            onClick={() => setLanguage('es')}
-          >
-            🇪🇸
-          </button>
-          <button
-            className={`mx-2 text-3xl ${language === 'en' ? 'font-bold' : ''}`}
-            onClick={() => setLanguage('en')}
-          >
-            🇬🇧
-          </button>
-        </div>
-        <div className="max-w-3xl mx-auto py-12 px-4">
-          {Object.keys(menuData).map(section => (
-            <MenuSection
-              key={`${section}_accordion`}
-              title={section}
-              items={menuData[section]}
+    <>
+      <Head>
+        <title>Carta | Pizzería Ringo Bar</title>
+        <meta
+          name="description"
+          content="Explora nuestro carta de deliciosas pizzas, pastas, ensaladas y mucho más. Descubre los sabores auténticos de Italia en la Pizzería Ringo Bar en Madrid. ¡Haz tu pedido en línea hoy mismo!"
+        />
+        <meta
+          name="keywords"
+          content="carta, menú, comida, bebidas, restaurante, platos, carta, restaurante en línea, pedido en línea, comida para llevar"
+        />
+      </Head>
+      <div className="min-h-screen flex flex-col bg-ringoBeige">
+        <Header nav={nav} />
+        <main className="flex-grow">
+          <div className="relative h-[50vh]">
+            <img
+              src="/austin-ban-IS6RwpuEJpY-unsplash.jpg"
+              alt="Chef de pizza preparando masa de pizza en Ringo Bar Pizzeria en Valencia"
+              className="h-[50vh] w-full object-cover"
             />
-          ))}
-        </div>
-      </main>
-      <Footer />
-    </div>
+            <div className="absolute inset-0 bg-black opacity-50" />
+            <div className="absolute inset-0 flex justify-center items-center">
+              <h1 className="text-4xl font-bold text-white">La Carta</h1>
+            </div>
+          </div>
+          <div className="flex justify-center mt-6">
+            <button
+              className={`mx-2 text-3xl ${
+                language === 'es' ? 'font-bold' : ''
+              }`}
+              onClick={() => setLanguage('es')}
+            >
+              🇪🇸
+            </button>
+            <button
+              className={`mx-2 text-3xl ${
+                language === 'en' ? 'font-bold' : ''
+              }`}
+              onClick={() => setLanguage('en')}
+            >
+              🇬🇧
+            </button>
+          </div>
+          <div className="max-w-3xl mx-auto py-12 px-4">
+            {Object.keys(menuData).map(section => (
+              <MenuSection
+                key={`${section}_accordion`}
+                title={section}
+                items={menuData[section]}
+              />
+            ))}
+          </div>
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 };
 
