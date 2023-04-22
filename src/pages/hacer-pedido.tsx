@@ -36,7 +36,7 @@ const HacerPedidoPage: NextPage<HacerPedidoPageProps> = ({ nav, horarios }) => {
         />
       </Head>
       <div className="min-h-screen flex flex-col bg-ringoBeige">
-        <Header nav={nav} />
+        <Header nav={nav} forceBackground />
         <main className="flex-grow">
           <div className="relative h-[50vh]">
             <Image

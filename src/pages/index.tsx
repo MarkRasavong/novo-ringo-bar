@@ -26,7 +26,7 @@ const HomePage: NextPage<HomePageProps> = ({
 }) => {
   return (
     <div className="min-h-screen flex flex-col">
-      <Header nav={nav} />
+      <Header nav={nav} forceBackground />
       <main className="flex-grow">
         <HeroSection />
         <HorariosSection horarios={horarios} />
