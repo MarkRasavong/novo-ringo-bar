@@ -15,64 +15,17 @@ interface CartaPageProps {
 
 interface MenuItemProps {
   name: string;
+  engName: string;
+  engDescription: string;
   description: string;
   price: number;
 }
 
-const MenuSection: React.FC<{ items: MenuItemProps[]; title: string }> = ({
-  items,
-  title,
-}) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleSection = () => {
-    setIsOpen(!isOpen);
-  };
-
-  return (
-    <div className="mb-6">
-      <button
-        type="button"
-        className="flex items-center justify-between w-full font-medium text-lg focus:outline-none"
-        onClick={toggleSection}
-      >
-        <span>
-          _
-          <span className="capitalize text-2xl">
-            {`${title[0].toUpperCase() + title.slice(1)}`}
-          </span>
-        </span>
-        {isOpen ? <FaChevronUp /> : <FaChevronDown />}
-      </button>
-      {isOpen && (
-        <div className="grid gap-6 my-4">
-          {items.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col lg:flex-row justify-between items-center lg:items-start"
-            >
-              <div className="flex flex-col w-full">
-                <div className="mr-2 flex justify-between">
-                  <h3 className="text-md font-medium mb-1">{item.name}</h3>
-                  {item.price !== 0 && (
-                    <div className="text-md font-medium">
-                      {formatAsEuro(item.price)}
-                    </div>
-                  )}
-                </div>
-                <p className="text-sm text-gray-600">{item.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-      <hr className="border-b border-gray-300 border-opacity-30" />
-    </div>
-  );
-};
-
 const CartaPage: NextPage<CartaPageProps> = ({ carta, nav }) => {
+  const [language, setLanguage] = useState<'es' | 'en'>('es');
   const menuData: Record<string, MenuItemProps[]> = {};
+
+  console.log(carta);
 
   carta.forEach(item => {
     if (!menuData[item.tipo]) {
@@ -81,10 +34,68 @@ const CartaPage: NextPage<CartaPageProps> = ({ carta, nav }) => {
 
     menuData[item.tipo].push({
       name: item.nombre,
+      engName: item.eng_name || item.nombre,
+      engDescription: item.eng_descripcion || '',
       description: item.descripcion || '',
       price: item.precio,
     });
   });
+
+  const MenuSection: React.FC<{ items: MenuItemProps[]; title: string }> = ({
+    items,
+    title,
+  }) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleSection = () => {
+      setIsOpen(!isOpen);
+    };
+
+    return (
+      <div className="mb-6">
+        <button
+          type="button"
+          className="flex items-center justify-between w-full font-medium text-lg focus:outline-none"
+          onClick={toggleSection}
+        >
+          <span>
+            _
+            <span className="capitalize text-2xl">
+              {`${title[0].toUpperCase() + title.slice(1)}`}
+            </span>
+          </span>
+          {isOpen ? <FaChevronUp /> : <FaChevronDown />}
+        </button>
+        {isOpen && (
+          <div className="grid gap-6 my-4">
+            {items.map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-col lg:flex-row justify-between items-center lg:items-start"
+              >
+                <div className="flex flex-col w-full">
+                  <div className="mr-2 flex justify-between">
+                    <h3 className="text-md font-medium mb-1">
+                      {language === 'es' ? item.name : item.engName}
+                    </h3>
+                    {item.price !== 0 && (
+                      <div className="text-md font-medium">
+                        {formatAsEuro(item.price)}
+                      </div>
+                    )}
+                  </div>
+                  <p className="text-sm text-gray-600">
+                    {language === 'es' ? item.description : item.engDescription}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+        <hr className="border-b border-gray-300 border-opacity-30" />
+      </div>
+    );
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-ringoBeige">
