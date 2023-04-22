@@ -31,13 +31,13 @@ const HeroSection = () => {
         <div className="flex justify-center mb-16">
           <Link
             href="/carta"
-            className="text-white text-lg md:text-xl mr-6 border border-white rounded-full py-2 px-4 transition duration-500 ease-in-out hover:bg-white hover:text-black"
+            className="bg-ringoRed hover:bg-ringoDarkRed text-white text-lg md:text-xl mr-6 border border-transparent rounded-full py-2 px-4 transition duration-500 ease-in-out"
           >
             <FaBook className="inline-block mr-2" /> Ver Carta
           </Link>
           <Link
             href="/hacer-pedido"
-            className="text-white text-lg md:text-xl border border-white rounded-full py-2 px-4 transition duration-500 ease-in-out hover:bg-white hover:text-black"
+            className="bg-ringoRed hover:bg-ringoDarkRed text-white text-lg md:text-xl border border-transparent rounded-full py-2 px-4 transition duration-500 ease-in-out"
           >
             <FaPizzaSlice className="inline-block mr-2" /> Hacer Pedido
           </Link>
