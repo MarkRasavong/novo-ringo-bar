@@ -1,7 +1,5 @@
-import { FaPhone } from 'react-icons/fa';
-import { AiOutlineGlobal } from 'react-icons/ai';
+import { FaPhone, FaPizzaSlice } from 'react-icons/fa';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
-import { MdRestaurantMenu } from 'react-icons/md';
 import { SiJusteat } from 'react-icons/si';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -41,7 +39,7 @@ const HacerPedidoPage: NextPage<HacerPedidoPageProps> = ({ nav, horarios }) => {
         </div>
         <section className="py-12">
           <h2 className="text-center text-gray-800 text-2xl md:text-3xl font-bold mb-8">
-            Hacer un pedido
+            Elige un método de entrega
           </h2>
           <div className="container mx-auto">
             <div className="md:grid md:gap-4 md:grid-cols-2 flex flex-col justify-center items-start px-8">
@@ -49,16 +47,16 @@ const HacerPedidoPage: NextPage<HacerPedidoPageProps> = ({ nav, horarios }) => {
                 <FaPhone className="text-ringoRed mr-2" />
                 <a
                   href="tel:+34-624-41-45-18"
-                  className="text-gray-800 font-medium hover:underline"
+                  className="text-gray-800 text-lg hover:underline"
                 >
                   Pedir o Reservar Mesa
                 </a>
               </div>
               <div className="flex items-center justify-center mb-4 sm:justify-start lg:justify-center">
-                <HiOutlineLocationMarker className="text-ringoRed mr-2" />
+                <FaPizzaSlice className="text-ringoRed mr-2" />
                 <Link
                   href="/pedir-a-ringo"
-                  className="text-gray-800 font-medium hover:underline"
+                  className="text-gray-800 text-lg hover:underline"
                 >
                   Pedir en línea (recogida o entrega)
                 </Link>
@@ -79,7 +77,7 @@ const HacerPedidoPage: NextPage<HacerPedidoPageProps> = ({ nav, horarios }) => {
                 </a>
               </div>
               <div className="flex items-center justify-center sm:justify-start lg:justify-center">
-                <AiOutlineGlobal className="text-ringoRed mr-2" />
+                <HiOutlineLocationMarker className="text-ringoRed mr-2" />
                 <a
                   href="https://glovoapp.com/es/es/valencia/ringo-bar-valencia/"
                   className="text-gray-800 font-medium hover:underline"
