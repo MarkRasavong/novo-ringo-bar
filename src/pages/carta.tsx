@@ -25,8 +25,6 @@ const CartaPage: NextPage<CartaPageProps> = ({ carta, nav }) => {
   const [language, setLanguage] = useState<'es' | 'en'>('es');
   const menuData: Record<string, MenuItemProps[]> = {};
 
-  console.log(carta);
-
   carta.forEach(item => {
     if (!menuData[item.tipo]) {
       menuData[item.tipo] = [];
@@ -51,6 +49,20 @@ const CartaPage: NextPage<CartaPageProps> = ({ carta, nav }) => {
       setIsOpen(!isOpen);
     };
 
+    const translatedTitle =
+      language === 'en'
+        ? {
+            'para-compartir': 'Appetizers',
+            bocadillos: 'Sandwiches',
+            bebidas: 'Drinks',
+            extras: 'Extras',
+            pastas: 'Pastas',
+            pizzas: 'Pizzas',
+            postres: 'Desserts',
+            promociones: 'Promotions',
+          }[title]
+        : title;
+
     return (
       <div className="mb-6">
         <button
@@ -61,7 +73,10 @@ const CartaPage: NextPage<CartaPageProps> = ({ carta, nav }) => {
           <span>
             _
             <span className="capitalize text-2xl">
-              {`${title[0].toUpperCase() + title.slice(1)}`}
+              {`${
+                (translatedTitle as string)[0].toUpperCase() +
+                (translatedTitle as string).slice(1)
+              }`}
             </span>
           </span>
           {isOpen ? <FaChevronUp /> : <FaChevronDown />}
