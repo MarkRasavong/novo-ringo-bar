@@ -127,6 +127,20 @@ const CartaPage: NextPage<CartaPageProps> = ({ carta, nav }) => {
             <h1 className="text-4xl font-bold text-white">La Carta</h1>
           </div>
         </div>
+        <div className="flex justify-center mt-6">
+          <button
+            className={`mx-2 text-3xl ${language === 'es' ? 'font-bold' : ''}`}
+            onClick={() => setLanguage('es')}
+          >
+            🇪🇸
+          </button>
+          <button
+            className={`mx-2 text-3xl ${language === 'en' ? 'font-bold' : ''}`}
+            onClick={() => setLanguage('en')}
+          >
+            🇬🇧
+          </button>
+        </div>
         <div className="max-w-3xl mx-auto py-12 px-4">
           {Object.keys(menuData).map(section => (
             <MenuSection
