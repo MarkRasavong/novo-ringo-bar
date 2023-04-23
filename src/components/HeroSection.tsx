@@ -13,7 +13,7 @@ const HeroSection = () => {
         loop
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
-        src="/pexels-denys-gromov-6176588.mp4"
+        src="/pexels-kampus-production-6603334-1280x720-25fps.mp4"
       ></video>
       <div className="relative z-10 text-center">
         <div className="mx-auto w-40 md:w-60 lg:w-80 mb-8 p-2 rounded-full shadow-lg">
