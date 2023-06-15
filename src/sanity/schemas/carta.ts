@@ -51,7 +51,7 @@ export default {
           {title: 'Postres', value: 'postres'},
           {title: 'Extras', value: 'extras'},
           {title: 'Pastas', value: 'pastas'},
-          {title: 'Para compartir', value: 'para-compartir'},
+          {title: 'Entrantes', value: 'entrantes'},
           {title: 'Bebidas', value: 'bebidas'},
           {title: 'Desayunos', value: 'desayunos'},
           {title: 'Almuerzos', value: 'almuerzos'},
