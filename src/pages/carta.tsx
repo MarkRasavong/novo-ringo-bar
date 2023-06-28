@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { GetStaticProps, NextPage } from 'next';
-import { client } from '@/lib/client';
+import { client, urlFor } from '@/lib/client';
 import { SanityBarraNavSchema } from '@/sanity/schemas/nav';
 import { SanityCartaSchema } from '@/sanity/schemas/carta';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
@@ -8,6 +8,8 @@ import { formatAsEuro } from '@/utils';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Head from 'next/head';
+import Image from 'next/image';
+import ringoLogo from '../../public/pizzeria_ringo.webp';
 
 interface CartaPageProps {
   carta: SanityCartaSchema[];
@@ -20,6 +22,7 @@ interface MenuItemProps {
   engDescription: string;
   description: string;
   price: number;
+  foto: string;
 }
 
 const CartaPage: NextPage<CartaPageProps> = ({ carta, nav }) => {
@@ -37,6 +40,7 @@ const CartaPage: NextPage<CartaPageProps> = ({ carta, nav }) => {
       engDescription: item.eng_descripcion || '',
       description: item.descripcion || '',
       price: item.precio,
+      foto: item.foto?.asset._ref as unknown as string,
     });
   });
 
@@ -91,16 +95,40 @@ const CartaPage: NextPage<CartaPageProps> = ({ carta, nav }) => {
               >
                 <div className="flex flex-col w-full">
                   <div className="mr-2 flex justify-between">
-                    <h3 className="text-md font-medium mb-1">
-                      {language === 'es' ? item.name : item.engName}
-                    </h3>
+                    <div className="flex items-center">
+                      {item.foto ? (
+                        <Image
+                          height={50}
+                          width={50}
+                          src={
+                            urlFor(item.foto).height(50).width(50).toString() ||
+                            ringoLogo
+                          }
+                          alt={`photo of ${item.name}`}
+                          className={`block rounded-md mr-1`}
+                        />
+                      ) : (
+                        <Image
+                          height={50}
+                          width={50}
+                          src={ringoLogo}
+                          alt={`photo of ${item.name}`}
+                          className={`block rounded-md mr-1`}
+                        />
+                      )}
+                      <div>
+                        <h3 className="text-md font-medium mb-1">
+                          {language === 'es' ? item.name : item.engName}
+                        </h3>
+                      </div>
+                    </div>
                     {item.price !== 0 && (
-                      <div className="text-md font-medium">
+                      <div className="text-md font-medium flex items-center">
                         {formatAsEuro(item.price)}
                       </div>
                     )}
                   </div>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-gray-600 mt-1">
                     {language === 'es' ? item.description : item.engDescription}
                   </p>
                 </div>
