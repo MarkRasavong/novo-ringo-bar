@@ -145,7 +145,10 @@ const CartaPage: NextPage<CartaPageProps> = ({ carta, nav }) => {
                             <Image
                               width={500}
                               height={500}
-                              src={urlFor(currentItem.foto).toString()}
+                              src={urlFor(currentItem.foto)
+                                .width(500)
+                                .height(500)
+                                .toString()}
                               alt={`Larger photo of ${currentItem.name}`}
                               className="max-w-full max-h-full"
                             />
