@@ -133,7 +133,7 @@ const CartaPage: NextPage<CartaPageProps> = ({ carta, nav }) => {
                           className={`block rounded-md mr-1`}
                         />
                       )}
-                      {isModalOpen && currentItem && (
+                      {isModalOpen && (
                         <div className="fixed top-0 left-0 z-50 flex items-center justify-center w-screen h-screen bg-black bg-opacity-75">
                           <div className="relative">
                             <button
@@ -143,13 +143,13 @@ const CartaPage: NextPage<CartaPageProps> = ({ carta, nav }) => {
                               <FaWindowClose size={40} />
                             </button>
                             <Image
-                              width={500}
-                              height={500}
-                              src={urlFor(currentItem.foto)
-                                .width(500)
-                                .height(500)
+                              width={400}
+                              height={400}
+                              src={urlFor(currentItem!.foto)
+                                .width(400)
+                                .height(400)
                                 .toString()}
-                              alt={`Larger photo of ${currentItem.name}`}
+                              alt={`Larger photo of ${currentItem!.name}`}
                               className="max-w-full max-h-full"
                             />
                           </div>
