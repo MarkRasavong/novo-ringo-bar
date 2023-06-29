@@ -69,7 +69,7 @@ const CartaPage: NextPage<CartaPageProps> = ({ carta, nav }) => {
     const translatedTitle =
       language === 'en'
         ? {
-            'para-compartir': 'Appetizers',
+            entrantes: 'Appetizers',
             bocadillos: 'Sandwiches',
             bebidas: 'Drinks',
             extras: 'Extras',
