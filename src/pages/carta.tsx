@@ -143,11 +143,11 @@ const CartaPage: NextPage<CartaPageProps> = ({ carta, nav }) => {
                               <FaWindowClose size={40} />
                             </button>
                             <Image
-                              width={400}
-                              height={400}
+                              width={500}
+                              height={500}
                               src={urlFor(currentItem!.foto)
-                                .width(400)
-                                .height(400)
+                                .width(500)
+                                .height(500)
                                 .toString()}
                               alt={`Larger photo of ${currentItem!.name}`}
                               className="max-w-full max-h-full"
