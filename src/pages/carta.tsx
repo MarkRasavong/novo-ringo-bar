@@ -3,7 +3,7 @@ import { GetStaticProps, NextPage } from 'next';
 import { client, urlFor } from '@/lib/client';
 import { SanityBarraNavSchema } from '@/sanity/schemas/nav';
 import { SanityCartaSchema } from '@/sanity/schemas/carta';
-import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { FaChevronDown, FaChevronUp, FaWindowClose } from 'react-icons/fa';
 import { formatAsEuro } from '@/utils';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
@@ -49,6 +49,18 @@ const CartaPage: NextPage<CartaPageProps> = ({ carta, nav }) => {
     title,
   }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const [currentItem, setCurrentItem] = useState<MenuItemProps | null>(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = (item: MenuItemProps) => {
+      setCurrentItem(item);
+      setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+      setCurrentItem(null);
+      setIsModalOpen(false);
+    };
 
     const toggleSection = () => {
       setIsOpen(!isOpen);
@@ -97,16 +109,21 @@ const CartaPage: NextPage<CartaPageProps> = ({ carta, nav }) => {
                   <div className="mr-2 flex justify-between">
                     <div className="flex items-center">
                       {item.foto ? (
-                        <Image
-                          height={50}
-                          width={50}
-                          src={
-                            urlFor(item.foto).height(50).width(50).toString() ||
-                            ringoLogo
-                          }
-                          alt={`photo of ${item.name}`}
-                          className={`block rounded-md mr-1`}
-                        />
+                        <div
+                          onClick={() => openModal(item)}
+                          className="cursor-pointer"
+                        >
+                          <Image
+                            height={50}
+                            width={50}
+                            src={urlFor(item.foto)
+                              .height(50)
+                              .width(50)
+                              .toString()}
+                            alt={`photo of ${item.name}. ${item.description}`}
+                            className={`block rounded-md mr-1`}
+                          />
+                        </div>
                       ) : (
                         <Image
                           height={50}
@@ -115,6 +132,25 @@ const CartaPage: NextPage<CartaPageProps> = ({ carta, nav }) => {
                           alt={`photo of ${item.name}`}
                           className={`block rounded-md mr-1`}
                         />
+                      )}
+                      {isModalOpen && currentItem && (
+                        <div className="fixed top-0 left-0 z-50 flex items-center justify-center w-screen h-screen bg-black bg-opacity-75">
+                          <div className="relative">
+                            <button
+                              className="absolute top-2 right-2 text-white text-xl focus:outline-none"
+                              onClick={closeModal}
+                            >
+                              <FaWindowClose size={40} />
+                            </button>
+                            <Image
+                              width={500}
+                              height={500}
+                              src={urlFor(currentItem.foto).toString()}
+                              alt={`Larger photo of ${currentItem.name}`}
+                              className="max-w-full max-h-full"
+                            />
+                          </div>
+                        </div>
                       )}
                       <div>
                         <h3 className="text-md font-medium mb-1">
