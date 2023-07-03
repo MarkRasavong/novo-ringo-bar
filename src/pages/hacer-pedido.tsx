@@ -1,7 +1,5 @@
 import { FaPhone, FaStore } from 'react-icons/fa';
 import { MdDeliveryDining } from 'react-icons/md';
-import { HiOutlineLocationMarker } from 'react-icons/hi';
-import { SiJusteat } from 'react-icons/si';
 import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/components/Header';
@@ -66,7 +64,7 @@ const HacerPedidoPage: NextPage<HacerPedidoPageProps> = ({ nav, horarios }) => {
                     Pedir o Reservar Mesa
                   </a>
                 </div>
-                <div className="flex items-center justify-center mb-4 sm:justify-start lg:justify-center">
+                <div className="flex items-center justify-center mb-8 sm:justify-start lg:justify-center">
                   <FaStore className="text-ringoRed mr-2" />
                   <Link
                     href="/pedir-a-ringo"
@@ -76,7 +74,7 @@ const HacerPedidoPage: NextPage<HacerPedidoPageProps> = ({ nav, horarios }) => {
                   </Link>
                 </div>
                 <div className="flex items-center justify-center mb-4 sm:justify-start lg:justify-center">
-                  <MdDeliveryDining className="text-ringoRed mr-2" size={25} />
+                  <MdDeliveryDining className="text-ringoRed mr-2" />
                   <a
                     href="https://negocios.watson.app/business/8ujKLZzGRkFlxlLQw1um"
                     target="_blank"
@@ -84,36 +82,6 @@ const HacerPedidoPage: NextPage<HacerPedidoPageProps> = ({ nav, horarios }) => {
                     className="text-gray-800 text-lg hover:underline"
                   >
                     Entrega a domicilio
-                  </a>
-                </div>
-                <div className="flex items-center justify-center sm:justify-start lg:justify-center">
-                  <SiJusteat className="text-ringoRed mr-2" />
-                  <a
-                    href="https://www.just-eat.es/restaurants-ringo-bar-valencia/menu"
-                    className="text-gray-800 font-medium hover:underline"
-                  >
-                    <Image
-                      src={'/just-eat-logo.png'}
-                      alt="Logo de Just Eat, Pide tu pizza de Ringo Bar con entrega a domicilio en Valencia a través de Just Eat"
-                      width={80}
-                      height={80}
-                      className="ml-2"
-                    />
-                  </a>
-                </div>
-                <div className="flex items-center justify-center sm:justify-start lg:justify-center">
-                  <HiOutlineLocationMarker className="text-ringoRed mr-2" />
-                  <a
-                    href="https://glovoapp.com/es/es/valencia/ringo-bar-valencia/"
-                    className="text-gray-800 font-medium hover:underline"
-                  >
-                    <Image
-                      src={'/glovo.png'}
-                      alt="Glovo logo, pedir Pizzeria Ringo Bar a reparto a domicilio con Glovo en Valencia"
-                      width={80}
-                      height={80}
-                      className="ml-2"
-                    />
                   </a>
                 </div>
               </div>
