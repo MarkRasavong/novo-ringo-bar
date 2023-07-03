@@ -1,4 +1,5 @@
-import { FaPhone, FaPizzaSlice } from 'react-icons/fa';
+import { FaPhone, FaStore } from 'react-icons/fa';
+import { MdDeliveryDining } from 'react-icons/md';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
 import { SiJusteat } from 'react-icons/si';
 import Image from 'next/image';
@@ -66,13 +67,24 @@ const HacerPedidoPage: NextPage<HacerPedidoPageProps> = ({ nav, horarios }) => {
                   </a>
                 </div>
                 <div className="flex items-center justify-center mb-4 sm:justify-start lg:justify-center">
-                  <FaPizzaSlice className="text-ringoRed mr-2" />
+                  <FaStore className="text-ringoRed mr-2" />
                   <Link
                     href="/pedir-a-ringo"
                     className="text-gray-800 text-lg hover:underline"
                   >
-                    Pedir en línea (recogida o entrega)
+                    Recogida en Ringo Bar
                   </Link>
+                </div>
+                <div className="flex items-center justify-center mb-4 sm:justify-start lg:justify-center">
+                  <MdDeliveryDining className="text-ringoRed mr-2" size={25} />
+                  <a
+                    href="https://negocios.watson.app/business/8ujKLZzGRkFlxlLQw1um"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-800 text-lg hover:underline"
+                  >
+                    Entrega a domicilio
+                  </a>
                 </div>
                 <div className="flex items-center justify-center sm:justify-start lg:justify-center">
                   <SiJusteat className="text-ringoRed mr-2" />
