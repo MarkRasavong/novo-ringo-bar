@@ -29,8 +29,6 @@ Join us in savoring the culinary magic of Italy right in the heart of Valencia. 
 
 Absolutely, here's the Project Overview section based on the information you provided:
 
-markdown
-Copy code
 ## Project Overview
 
 Welcome to the Valencian Pizzeria Project!
@@ -61,7 +59,7 @@ Provide step-by-step instructions on how to install and set up your project. You
 $ git clone https://github.com/drazomo/novo-ringo-bar.git
 $ cd novo-ringo-bar
 $ npm install
-
+```
 ## Where to find more:
 
 **Personal Website:** https://markrasavong.com/
