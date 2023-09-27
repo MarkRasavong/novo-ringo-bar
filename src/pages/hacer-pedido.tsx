@@ -55,24 +55,6 @@ const HacerPedidoPage: NextPage<HacerPedidoPageProps> = ({ nav, horarios }) => {
             </h2>
             <div className="container mx-auto">
               <div className="md:grid md:gap-4 md:grid-cols-2 flex flex-col justify-center items-start px-8">
-                <div className="flex items-center justify-center mb-8 sm:justify-start lg:justify-center">
-                  <FaPhone className="text-ringoRed mr-2" />
-                  <a
-                    href="tel:+34-624-41-45-18"
-                    className="text-gray-800 text-lg hover:underline"
-                  >
-                    Pedir o Reservar Mesa
-                  </a>
-                </div>
-                <div className="flex items-center justify-center mb-8 sm:justify-start lg:justify-center">
-                  <FaStore className="text-ringoRed mr-2" />
-                  <Link
-                    href="/pedir-a-ringo"
-                    className="text-gray-800 text-lg hover:underline"
-                  >
-                    Recogida en Ringo Bar
-                  </Link>
-                </div>
                 <div className="flex items-center justify-center mb-4 sm:justify-start lg:justify-center">
                   <MdDeliveryDining className="text-ringoRed mr-2" />
                   <a
@@ -82,6 +64,15 @@ const HacerPedidoPage: NextPage<HacerPedidoPageProps> = ({ nav, horarios }) => {
                     className="text-gray-800 text-lg hover:underline"
                   >
                     Entrega a domicilio
+                  </a>
+                </div>
+                <div className="flex items-center justify-center mb-8 sm:justify-start lg:justify-center">
+                  <FaPhone className="text-ringoRed mr-2" />
+                  <a
+                    href="tel:+34-624-41-45-18"
+                    className="text-gray-800 text-lg hover:underline"
+                  >
+                    Pedir o Reservar Mesa
                   </a>
                 </div>
               </div>
